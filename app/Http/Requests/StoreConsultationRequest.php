@@ -12,7 +12,7 @@ class StoreConsultationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,9 @@ class StoreConsultationRequest extends FormRequest
      */
     public function rules(): array
     {
+        // dd('heree');
         return [
-                        'patient_id' => 'required|exists:patients,id',
+            'patient_id' => 'required|exists:patients,id',
             'doctor_id' => 'required|exists:users,id',
             'consultation_date' => 'required|date',
             'symptoms' => 'nullable|string|max:1000',
@@ -57,6 +58,7 @@ class StoreConsultationRequest extends FormRequest
             'investigations.*.type' => 'required_with:investigations|in:pathology,radiology,other',
             'investigations.*.instructions' => 'nullable|string|max:500',
         ];
+
     }
 
     public function messages()

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('note');
             $table->enum('type', ['clinical', 'nursing', 'administrative'])->default('clinical');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

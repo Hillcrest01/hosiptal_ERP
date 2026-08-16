@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConsultationsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
@@ -19,6 +20,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('patients', PatientController::class);
+
+    //consultation
+    Route::resource('consultations', ConsultationsController::class);
+    Route::post('consultations/{consultation}/complete', [ConsultationsController::class, 'complete'])->name('consultations.complete');
+    Route::post('consultations/{consultation}/cancel', [ConsultationsController::class, 'cancel'])->name('consultations.cancel');
+    Route::get('patients/{patient}/consultations', [ConsultationsController::class, 'patientHistory'])->name('consultations.patient-history');
+    Route::get('consultations/{consultation}/prescription-print', [ConsultationsController::class, 'prescriptionPrint'])->name('consultations.prescription-print');
 });
 
 require __DIR__.'/auth.php';
