@@ -20,6 +20,7 @@ class PatientController extends Controller
 
     public function index(REQUEST $request)
     {
+        //this will show all patients
         if ($request->has('search')) {
             $patients = $this->patientService->searchPatients($request->search);
         } else {
