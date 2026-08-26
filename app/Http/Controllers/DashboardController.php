@@ -19,4 +19,6 @@ class DashboardController extends Controller
 
         return view('dashboard.index')->with($data);
     }
+    //Add new dashboard
+    
 }
