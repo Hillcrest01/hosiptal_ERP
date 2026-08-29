@@ -1,5 +1,7 @@
 <?php
 //to be configured to use Business Central
+//bc280
+
 return [
 
     /*
