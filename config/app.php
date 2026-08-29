@@ -1,5 +1,5 @@
 <?php
-//to be configured to use BC
+//to be configured to use Business Central
 return [
 
     /*
