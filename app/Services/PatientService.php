@@ -15,7 +15,7 @@ class PatientService
         $existing = Patient::where('phone', $data['phone'])->first();
         if ($existing) {
             throw ValidationException::withMessages([
-                'phone' => 'A patient with this phone number already exists. UHID: ' . $existing->uhid,
+                'phone' => 'A patient with this phone number already exists in the system. UHID: ' . $existing->uhid,
             ]);
         }
         if (!empty($data['email'])) {
