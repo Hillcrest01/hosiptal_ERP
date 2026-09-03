@@ -130,6 +130,7 @@ class ConsultationsController extends Controller
 
     public function prescriptionPrint(Consultation $consultation)
     {
+        //print the consultation form
         $consultation->load(['patient', 'doctor', 'prescriptions']);
         return view('consultations.prescription-print', compact('consultation'));
     }
